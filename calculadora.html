@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body id="body">
+     <h1 id="h1">Alexandre Milim</h1>
+     <div class="calculadora">
+        <h2 id="h2">CALCULADORA</h2>
+        <p id="resultado"></p>
+        <table>
+            <tr>
+                <td><button class="button" onclick="clean()">C</button></td>
+                <td><button class="button" onclick="back()"><</button></td>
+                <td><button class="button" onclick="insert('/')">/</button></td>
+                <td><button class="button" onclick="insert('*')">X</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('7')">7</button></td>
+                <td><button class="button" onclick="insert('8')">8</button></td>
+                <td><button class="button" onclick="insert('9')">9</button></td>
+                <td><button class="button" onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('4')">4</button></td>
+                <td><button class="button" onclick="insert('5')">5</button></td>
+                <td><button class="button" onclick="insert('6')">6</button></td>
+                <td><button class="button" onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="insert('1')">1</button></td>
+                <td><button class="button" onclick="insert('2')">2</button></td>
+                <td><button class="button" onclick="insert('3')">3</button></td>
+                <td rowspan="2"><button class="button" style="height: 106px;" onclick="calcular()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="button" style="width: 106px;" onclick="insert('0')">0</button></td>
+                <td><button class="button" onclick="insert('.')">.</button></td>
+            </tr>
+        </table>
+     </div>
+     <script>
+        // Insere um número ou operação no visor
+        function insert(num) {
+          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
+          resultado.innerHTML += num; // Concatena o número/operador ao visor atual //se eu tirar o "+" só vai dar para escrver um numero so
+        }
+  
+        // Limpa o visor da calculadora
+        function clean() {
+          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
+          resultado.innerHTML = ''; // Define o visor como uma string vazia
+        }
+  
+        // Apaga o último caractere do visor
+        function back() {
+          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
+          resultado.innerHTML = resultado.innerHTML.slice(0, -1); // Remove o último caractere do visor
+        }
+  
+        // Calcula o resultado da expressão no visor
+        function calcular() {
+          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
+          var expressao = resultado.innerHTML; // Pega a expressão do visor
+          if (expressao) {
+            // Se houver uma expressão no visor, calcula o resultado
+            resultado.innerHTML = eval(expressao); // Usa a função eval() para avaliar a expressão
+          } else {
+            // Se não houver uma expressão no visor, exibe "Nada..."
+            resultado.innerHTML = 'Nada...';
+          }
+        }
+      </script>
+</body>
+</html>
