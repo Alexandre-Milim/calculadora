@@ -14,66 +14,35 @@
         <p id="resultado"></p>
         <table>
             <tr>
-                <td><button class="button" onclick="clean()">C</button></td>
-                <td><button class="button" onclick="back()"><</button></td>
-                <td><button class="button" onclick="insert('/')">/</button></td>
-                <td><button class="button" onclick="insert('*')">X</button></td>
+                <td><button class="button" onclick="limpar()">C</button></td>
+                <td><button class="button" onclick="tirar()"><</button></td>
+                <td><button class="button" onclick="inserir('/')">/</button></td>
+                <td><button class="button" onclick="inserir('*')">X</button></td>
             </tr>
             <tr>
-                <td><button class="button" onclick="insert('7')">7</button></td>
-                <td><button class="button" onclick="insert('8')">8</button></td>
-                <td><button class="button" onclick="insert('9')">9</button></td>
-                <td><button class="button" onclick="insert('-')">-</button></td>
+                <td><button class="button" onclick="inserir('7')">7</button></td>
+                <td><button class="button" onclick="inserir('8')">8</button></td>
+                <td><button class="button" onclick="inserir('9')">9</button></td>
+                <td><button class="button" onclick="inserir('-')">-</button></td>
             </tr>
             <tr>
-                <td><button class="button" onclick="insert('4')">4</button></td>
-                <td><button class="button" onclick="insert('5')">5</button></td>
-                <td><button class="button" onclick="insert('6')">6</button></td>
-                <td><button class="button" onclick="insert('+')">+</button></td>
+                <td><button class="button" onclick="inserir('4')">4</button></td>
+                <td><button class="button" onclick="inserir('5')">5</button></td>
+                <td><button class="button" onclick="inserir('6')">6</button></td>
+                <td><button class="button" onclick="inserir('+')">+</button></td>
             </tr>
             <tr>
-                <td><button class="button" onclick="insert('1')">1</button></td>
-                <td><button class="button" onclick="insert('2')">2</button></td>
-                <td><button class="button" onclick="insert('3')">3</button></td>
+                <td><button class="button" onclick="inserir('1')">1</button></td>
+                <td><button class="button" onclick="inserir('2')">2</button></td>
+                <td><button class="button" onclick="inserir('3')">3</button></td>
                 <td rowspan="2"><button class="button" style="height: 106px;" onclick="calcular()">=</button></td>
             </tr>
             <tr>
-                <td colspan="2"><button class="button" style="width: 106px;" onclick="insert('0')">0</button></td>
-                <td><button class="button" onclick="insert('.')">.</button></td>
+                <td colspan="2"><button class="button" style="width: 106px;" onclick="inserir('0')">0</button></td>
+                <td><button class="button" onclick="inserir('.')">.</button></td>
             </tr>
         </table>
      </div>
-     <script>
-        // Insere um número ou operação no visor
-        function insert(num) {
-          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
-          resultado.innerHTML += num; // Concatena o número/operador ao visor atual //se eu tirar o "+" só vai dar para escrver um numero so
-        }
-  
-        // Limpa o visor da calculadora
-        function clean() {
-          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
-          resultado.innerHTML = ''; // Define o visor como uma string vazia
-        }
-  
-        // Apaga o último caractere do visor
-        function back() {
-          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
-          resultado.innerHTML = resultado.innerHTML.slice(0, -1); // Remove o último caractere do visor
-        }
-  
-        // Calcula o resultado da expressão no visor
-        function calcular() {
-          var resultado = document.getElementById('resultado'); // Pega o elemento HTML do visor
-          var expressao = resultado.innerHTML; // Pega a expressão do visor
-          if (expressao) {
-            // Se houver uma expressão no visor, calcula o resultado
-            resultado.innerHTML = eval(expressao); // Usa a função eval() para avaliar a expressão
-          } else {
-            // Se não houver uma expressão no visor, exibe "Nada..."
-            resultado.innerHTML = 'Nada...';
-          }
-        }
-      </script>
+     <script src="script.js"></script>
 </body>
 </html>
